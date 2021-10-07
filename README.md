@@ -20,7 +20,7 @@ Powinny być też ustawienia w menu na dole:
   - jakaś ograniczona podpowiedź. Albo kilka na planszę, albo może się zsumować (no za zrobiony poziom + 0-3 podpowiedzi. Będzie to zależne od poziomu 
         (maby dodatkowo liczy ile zostało wykorzystanych))
   - statystyki: wykonane dobrze, źle, rozegrane/zaczęte
-        
+         
 Jak się kliknie, to wygeneruje się tablica z sudoku. 
 
 
