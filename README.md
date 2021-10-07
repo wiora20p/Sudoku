@@ -17,7 +17,7 @@ Powinny być też ustawienia w menu na dole:
   - możliwość wybrania zaznaczenia pionu i poziomu od klikniętego/najechanego miejsca w tabeli.
   - Może to być albo albo z poprzednim punktem. Jak się kliknie w cyfrę, to zaznaczają się wszystkie takie same wpisane. NIE ZAPOMINAĆ O MOŻLIWOŚCI BRAKU ANI JEDNEGO ANI         DRUGIEGO
   - możliwość wybrania pokazywania błędów (pokliknięciu enter, lub w inny element)+ za dużo błędów = brak podpowiedzi
-  - jakaś ograniczona podpowiedź. Albo kilka na planszę, albo może się zsumować (no za zrobiony poziom + 0-3 podpowiedzi. Będzie to zależne od poziomu 
+  - jakaś ograniczona podpowiedź (klikasz na puste pole, a potem klikasz na znacznik podpowiedź). Albo kilka na planszę, albo może się zsumować (no za zrobiony poziom + 0-3 podpowiedzi. Będzie to zależne od poziomu 
         (maby dodatkowo liczy ile zostało wykorzystanych))
   - statystyki: wykonane dobrze, źle, rozegrane/zaczęte
          
