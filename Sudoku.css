@@ -1,11 +1,19 @@
+header{
+    bac
+}
 .rzad{
     border: 5px solid black;
     border-collapse: collapse;  
+    width: 30px;
 }
 .pole{
     border: 2px solid black ;
     width: 30px;
     height: 30px;
+}
+td{
+    width: 10px;
+    height: 10px;
 }
 /* }
 #c,#f{

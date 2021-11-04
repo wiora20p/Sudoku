@@ -1,51 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="Stylesheet" href="Sudoku.css">
 </head>
+
 <body>
+    <header>
+
+    </header>
     <nav>
         <ol>
             <li>sudoku 2x2</li>
             <li class="trzy">sudoku 3x3</li>
         </ol>
+
     </nav>
     <article>
         <table class="sudoku">
             <tbody>
-               
+                <tr>
+
+                </tr>
             </tbody>
         </table>
     </article>
 
     <script>
         let x = document.getElementsByClassName("trzy")[0];
-        x.addEventListener("click",function () {nazwa (3);});
+        x.addEventListener("click", function () { nazwa(3, 3); });
 
-        function nazwa (y){
-            let ilosc = y * y;
-            let sztuk = document.getElementsByTagName("div");
-            document.getElementsByTagName("tbody")[0].appendChild(document.createElement("div"));
-            sztuk[0].setAttribute("class","pole");
-            for(let i=0; i < ilosc; i++){
-                let oblicz = document.querySelectorAll("div").lenght;
-                let dodaj = document.createElement("div");
-                document.getElementsByTagName("div")[0].appendChild(dodaj);
+        function nazwa(x, y) {
+            let ilosc = x * y;
+            let sztuk = document.getElementsByTagName("td");
+            document.getElementsByTagName("tbody")[0].appendChild(document.createElement("td"));
+            for (let i = 0; i < ilosc; i++) {
+                let oblicz = document.querySelectorAll("td").length;
+                let dodaj = document.createElement("td");
+                document.getElementsByTagName("td")[0].appendChild(dodaj);
                 sztuk[oblicz].setAttribute("class", "rzad");
-                for(let j=0; j < ilosc; j++){
-                    let oblicz1 = document.querySelectorAll("div").lenght;
-                    let dodaj1 = document.createElement("div");
-                    document.getElementsByTagName("div")[0].appendChild(dodaj);
-                    sztuk[oblicz].setAttribute("class", "rzad");
-            }
+                for (let j = 0; j < ilosc; j++) {
+                    let oblicz1 = document.querySelectorAll("td").length;
+                    let dodaj1 = document.createElement("td");
+                    document.getElementsByTagName("td")[0].appendChild(dodaj1);
+                    sztuk[oblicz1].setAttribute("class", "rzad pole");
+                }
             }
 
         }
 
 
     </script>
-    
+
 </body>
+
 </html>
