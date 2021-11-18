@@ -1,5 +1,14 @@
 header{
-    bac
+    display: flex;
+    background-color: darksalmon;
+    height: 100px;
+    justify-content: center;
+}
+nav{
+    background-color: chocolate;
+}
+li{
+    margin: 2px;
 }
 .rzad{
     border: 5px solid black;

@@ -9,50 +9,60 @@
 
 <body>
     <header>
-
+        <h1>SUDOKU</h1>
     </header>
     <nav>
         <ol>
-            <li>sudoku 2x2</li>
+            <li class="dwa">sudoku 2x2</li>
             <li class="trzy">sudoku 3x3</li>
         </ol>
 
     </nav>
     <article>
-        <table class="sudoku">
-            <tbody>
-                <tr>
 
-                </tr>
-            </tbody>
-        </table>
     </article>
 
     <script>
-        let x = document.getElementsByClassName("trzy")[0];
-        x.addEventListener("click", function () { nazwa(9, 9); });
+        let dwa = document.getElementsByClassName("dwa")[0];
+        let trzy = document.getElementsByClassName("trzy")[0];
 
-        function nazwa(x,y) {
-            var body = document.getElementsByTagName("body")[0];
+        dwa.addEventListener("click", function () { nazwa(2, 2); });
+        trzy.addEventListener("click", function () { nazwa(3, 3); });
+
+        function nazwa(x, y) {
+            z = x * y;
+            var body = document.querySelector("body");
+            const sudoku = document.querySelector("article");
             var tbl = document.createElement("table");
-            var tblBody = document.createElement("tbody");
+            var tbody = document.createElement("tbody");
 
-            for (var j = 1; j <= x; j++) {
+            for (var j = 1; j <= z; j++) {
                 // table row creation
                 var row = document.createElement("tr");
 
-                for (var i = 1; i <= y; i++) {
-                var cell = document.createElement("td");
-                var cellText = document.createTextNode(j + ", " + i);
-                cell.appendChild(cellText);
-                row.appendChild(cell);
+                for (var i = 1; i <= z; i++) {
+                    var cell = document.createElement("td");
+                    var cellText = document.createTextNode(j + ", " + i);
+                    cell.appendChild(cellText);
+                    row.appendChild(cell);
+                    cell.style.cssText = `
+                        border-spacing: 0;
+                        border: 2px solid black;
+                        width: 50px;
+                    `
                 }
-                tblBody.appendChild(row);
+                tbody.appendChild(row);
             }
-            tbl.appendChild(tblBody);
-            body.appendChild(tbl);
-            tbl.setAttribute("border", "2");
-            }
+            tbl.appendChild(tbody);
+            sudoku.appendChild(tbl);
+            // tbl.setAttribute("border", "2");
+            // tbody.setAttribute("border-collapse", "collapse");
+
+            // tbody = document.querySelector("tbody");
+            // tbody.style.cssText = `
+            //     border-collapse: collapse;
+            // `
+        }
         //     let ilosc = x * y;
         //     let sztuk = document.getElementsByTagName("td");
         //     document.getElementsByTagName("tbody")[0].appendChild(document.createElement("td"));
