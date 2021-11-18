@@ -30,26 +30,46 @@
 
     <script>
         let x = document.getElementsByClassName("trzy")[0];
-        x.addEventListener("click", function () { nazwa(3, 3); });
+        x.addEventListener("click", function () { nazwa(9, 9); });
 
-        function nazwa(x, y) {
-            let ilosc = x * y;
-            let sztuk = document.getElementsByTagName("td");
-            document.getElementsByTagName("tbody")[0].appendChild(document.createElement("td"));
-            for (let i = 0; i < ilosc; i++) {
-                let oblicz = document.querySelectorAll("td").length;
-                let dodaj = document.createElement("td");
-                document.getElementsByTagName("td")[0].appendChild(dodaj);
-                sztuk[oblicz].setAttribute("class", "rzad");
-                for (let j = 0; j < ilosc; j++) {
-                    let oblicz1 = document.querySelectorAll("td").length;
-                    let dodaj1 = document.createElement("td");
-                    document.getElementsByTagName("td")[0].appendChild(dodaj1);
-                    sztuk[oblicz1].setAttribute("class", "rzad pole");
+        function nazwa(x,y) {
+            var body = document.getElementsByTagName("body")[0];
+            var tbl = document.createElement("table");
+            var tblBody = document.createElement("tbody");
+
+            for (var j = 1; j <= x; j++) {
+                // table row creation
+                var row = document.createElement("tr");
+
+                for (var i = 1; i <= y; i++) {
+                var cell = document.createElement("td");
+                var cellText = document.createTextNode(j + ", " + i);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
                 }
+                tblBody.appendChild(row);
             }
+            tbl.appendChild(tblBody);
+            body.appendChild(tbl);
+            tbl.setAttribute("border", "2");
+            }
+        //     let ilosc = x * y;
+        //     let sztuk = document.getElementsByTagName("td");
+        //     document.getElementsByTagName("tbody")[0].appendChild(document.createElement("td"));
+        //     for (let i = 0; i < ilosc; i++) {
+        //         let oblicz = document.querySelectorAll("td").length;
+        //         let dodaj = document.createElement("td");
+        //         document.getElementsByTagName("td")[0].appendChild(dodaj);
+        //         sztuk[oblicz].setAttribute("class", "rzad");
+        //         for (let j = 0; j < ilosc; j++) {
+        //             let oblicz1 = document.querySelectorAll("td").length;
+        //             let dodaj1 = document.createElement("td");
+        //             document.getElementsByTagName("td")[0].appendChild(dodaj1);
+        //             sztuk[oblicz1].setAttribute("class", "rzad pole");
+        //         }
+        //     }
 
-        }
+        // }
 
 
     </script>
