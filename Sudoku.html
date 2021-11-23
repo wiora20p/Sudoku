@@ -35,6 +35,7 @@
             const sudoku = document.querySelector("article");
             var tbl = document.createElement("table");
             var tbody = document.createElement("tbody");
+            var br = document.createElement("br");
 
             for (var j = 1; j <= z; j++) {
                 // table row creation
@@ -55,29 +56,25 @@
             }
             tbl.appendChild(tbody);
             sudoku.appendChild(tbl);
+
+            for (var m = 1; m <= z; m++){
+                var cell = document.createElement("td");
+                var cellText = document.createTextNode(m);
+                cell.appendChild(cellText);
+                tbl.appendChild(cell);
+            }
+
+            
             // tbl.setAttribute("border", "2");
-            // tbody.setAttribute("border-collapse", "collapse");
+            // tbl.setAttribute("border-collapse", "collapse");
 
             // tbody = document.querySelector("tbody");
             // tbody.style.cssText = `
             //     border-collapse: collapse;
             // `
+
         }
-        //     let ilosc = x * y;
-        //     let sztuk = document.getElementsByTagName("td");
-        //     document.getElementsByTagName("tbody")[0].appendChild(document.createElement("td"));
-        //     for (let i = 0; i < ilosc; i++) {
-        //         let oblicz = document.querySelectorAll("td").length;
-        //         let dodaj = document.createElement("td");
-        //         document.getElementsByTagName("td")[0].appendChild(dodaj);
-        //         sztuk[oblicz].setAttribute("class", "rzad");
-        //         for (let j = 0; j < ilosc; j++) {
-        //             let oblicz1 = document.querySelectorAll("td").length;
-        //             let dodaj1 = document.createElement("td");
-        //             document.getElementsByTagName("td")[0].appendChild(dodaj1);
-        //             sztuk[oblicz1].setAttribute("class", "rzad pole");
-        //         }
-        //     }
+
 
         // }
 
