@@ -11,16 +11,26 @@
     <header>
         <h1>SUDOKU</h1>
     </header>
-    <nav>
-        <ol>
-            <li class="dwa">sudoku 2x2</li>
-            <li class="trzy">sudoku 3x3</li>
-        </ol>
+    <main>
 
-    </nav>
-    <article>
+        
+        <nav>
+            <ol>
+                <li class="dwa">sudoku 2x2</li>
+                <li class="trzy">sudoku 3x3</li>
+            </ol>
 
-    </article>
+        </nav>
+        <article>
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+
+        </article>
+    </main>
 
     <script>
         let dwa = document.getElementsByClassName("dwa")[0];
@@ -33,9 +43,14 @@
             z = x * y;
             var body = document.querySelector("body");
             const sudoku = document.querySelector("article");
+            var big = document.querySelectorAll("div")[0];
+            var small = document.querySelectorAll("div")[1];
             var tbl = document.createElement("table");
+            var tbl2 = document.createElement("table");
             var tbody = document.createElement("tbody");
+            var tbody2 = document.createElement("tbody");
             var br = document.createElement("br");
+
 
             for (var j = 1; j <= z; j++) {
                 // table row creation
@@ -50,19 +65,39 @@
                         border-spacing: 0;
                         border: 2px solid black;
                         width: 50px;
+                        height: 50px;
                     `
                 }
                 tbody.appendChild(row);
+                
             }
             tbl.appendChild(tbody);
-            sudoku.appendChild(tbl);
+            big.appendChild(tbl);
+            
+            
 
             for (var m = 1; m <= z; m++){
-                var cell = document.createElement("td");
-                var cellText = document.createTextNode(m);
-                cell.appendChild(cellText);
-                tbl.appendChild(cell);
+                var pole = document.createElement("td");
+                var poleText = document.createTextNode(m);
+                pole.appendChild(poleText);
+                tbody2.appendChild(pole);
+                tbody2.setAttribute("class", "klik");
+                pole.style.cssText = `
+                    border-spacing: 10;
+                    border: 2px solid black;
+                    width: 43px;
+                    height: 43px;
+                `
+                
             }
+            tbl2.appendChild(tbody2);
+            small.appendChild(tbl2);
+            tbl2.style.cssText = `
+                border-collapse: separate;
+                border: 2px solid black;
+                display: flex;
+                justify-content: space-around;
+            `
 
             
             // tbl.setAttribute("border", "2");
