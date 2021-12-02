@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Sudoku</title>
     <link rel="Stylesheet" href="Sudoku.css">
 </head>
 
@@ -13,10 +13,11 @@
     </header>
     <main>
 
-        
+
         <nav>
             <ol>
                 <li class="dwa">sudoku 2x2</li>
+                <li class="dwaNaTrzy">sudoku 2x3</li>
                 <li class="trzy">sudoku 3x3</li>
             </ol>
 
@@ -34,9 +35,11 @@
 
     <script>
         let dwa = document.getElementsByClassName("dwa")[0];
+        let dwaNaTrzy = document.getElementsByClassName("dwaNaTrzy")[0];
         let trzy = document.getElementsByClassName("trzy")[0];
 
         dwa.addEventListener("click", function () { nazwa(2, 2); });
+        dwaNaTrzy.addEventListener("click", function () { nazwa(2, 3); });
         trzy.addEventListener("click", function () { nazwa(3, 3); });
 
         function nazwa(x, y) {
@@ -54,7 +57,7 @@
             var tablica = []; //utworzenie tablicy
             for (var i = 0; i < z; i++) {
                 tablica[i] = [];    //zrobienie tablicy dwuwymiarowej
-            }   
+            }
 
             for (var i = 1; i <= z; i++) {
                 // table row creation
@@ -63,26 +66,26 @@
                 for (var j = 1; j <= z; j++) {
                     var cell = document.createElement("td");
                     var input = document.createElement("input");
-                        input.setAttribute("type","number");
-                        input.setAttribute("max",z);
-                        input.setAttribute("min",1);
-                    var rPlace = Math.floor((Math.random() * (z) + 1))*1;
-                    if (rPlace == j){
-                        var rNumber = Math.floor((Math.random() * (z) + 1))*1;
-                        tablica[i-1][j-1] = rNumber;
-                        Check(rNumber,i,j,tablica); 
-                        while (Check(rNumber,i,j,tablica) != true){
-                            rNumber = Math.floor((Math.random() * (9) + 1))*1;
-                            tablica[i-1][j-1] = rNumber;
-                        }
+                    input.setAttribute("type", "number");
+                    input.setAttribute("max", z);
+                    input.setAttribute("min", 1);
+                    var rPlace = Math.floor((Math.random() * (z))) * 1;
+                    if (rPlace == j || rPlace == j - 1) {
+                        var rNumber = Math.floor((Math.random() * (z) + 1)) * 1;
+                        tablica[i - 1][j - 1] = rNumber;
+                        // Check(rNumber, i, j, tablica);
+                        // while (Check(rNumber, i, j, tablica) == false) {
+                        //     rNumber = Math.floor(Math.random() * (z) + 1) * 1;
+                        //     tablica[i - 1][j - 1] = rNumber;
+                        // }
                         var cellText = document.createTextNode(rNumber);
                         cell.appendChild(cellText);
-                        
+
                     }
-                    else{
+                    else {
                         cell.appendChild(input);
                     }
-                    
+
                     row.appendChild(cell);
                     cell.style.cssText = `
                         border-spacing: 0;
@@ -92,14 +95,14 @@
                     `
                 }
                 tbody.appendChild(row);
-                
+
             }
             tbl.appendChild(tbody);
             big.appendChild(tbl);
-            
-            
 
-            for (var m = 1; m <= z; m++){
+
+
+            for (var m = 1; m <= z; m++) {
                 var pole = document.createElement("td");
                 var poleText = document.createTextNode(m);
                 pole.appendChild(poleText);
@@ -111,7 +114,7 @@
                     width: 43px;
                     height: 43px;
                 `
-                
+
             }
             tbl2.appendChild(tbody2);
             small.appendChild(tbl2);
@@ -121,8 +124,13 @@
                 display: flex;
                 justify-content: space-around;
             `
+            var usun = document.createElement("button");
+            var usunTxt = document.createTextNode("usuń");
+            usun.appendChild(usunTxt);
+            sudoku.appendChild(usun);
+            usun.addEventListener("click", function () { sudoku.remove() });
 
-            
+
             // tbl.setAttribute("border", "2");
             // tbl.setAttribute("border-collapse", "collapse");
 
@@ -132,29 +140,34 @@
             // `
 
         }
-        function Check(rNumber,column,row,tablica){
-            if (Row(rNumber,column,row,tablica) == true && Column(rNumber,column,row,tablica) == true){ //kwadrat - square   && Square(rNumber,tablica) == true
-                return true;
-            }
-            else
-                return false;
-        }
-        function Row (rNumber,column,row,tablica){
-            for (i = 0; i < column-1; i++){
-                if(rNumber == tablica[row][i]){
-                    return false;
-                }
-            }
-            return true;
-        }
-        function Column (rNumber,column,row,tablica){
-            for (i = 0; i < row-1; i++){
-                if(rNumber == tablica[i][column]){
-                    return false;
-                }
-            }
-            return true;
-        }
+        // function Check(rNumber, column, row, tablica) {
+
+        //     if (Row(rNumber, column, row, tablica) == true && Column(rNumber, column, row, tablica) == true) { //kwadrat - square   && Square(rNumber,tablica) == true
+        //         return true;
+        //     }
+        //     else {
+        //         console.log("false3");
+        //         return false;
+        //     }
+        // }
+        // function Row(rNumber, column, row, tablica) {
+        //     for (i = 0; i < column - 1; i++) {
+        //         if (tablica[row][i] == rNumber) {
+        //             console.log("false1");
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // }
+        // function Column(rNumber, column, row, tablica) {
+        //     for (i = 0; i < row - 1; i++) {
+        //         if (tablica[i][column] == rNumber) {
+        //             console.log("false2");
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // }
         //function Square()
 
     </script>

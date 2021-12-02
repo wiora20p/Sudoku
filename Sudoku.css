@@ -20,6 +20,9 @@ nav{
 li{
     margin: 2px;
 }
+li:hover{
+    cursor: pointer;
+}
 article{
     display: flex;
     flex-direction: column;
@@ -47,6 +50,9 @@ td{
 table{
     border-collapse: collapse; 
 }
+input{
+    height: 50px;
+    width: 50px;
 /* .klik{
     margin: 10px;
 } */
