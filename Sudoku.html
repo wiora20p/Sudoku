@@ -51,25 +51,36 @@
             var tbody2 = document.createElement("tbody");
             var br = document.createElement("br");
 
+            var tablica = []; //utworzenie tablicy
+            for (var i = 0; i < z; i++) {
+                tablica[i] = [];    //zrobienie tablicy dwuwymiarowej
+            }   
 
-            for (var j = 1; j <= z; j++) {
+            for (var i = 1; i <= z; i++) {
                 // table row creation
                 var row = document.createElement("tr");
 
-                for (var i = 1; i <= z; i++) {
+                for (var j = 1; j <= z; j++) {
                     var cell = document.createElement("td");
-                    var rPlace = Math.floor((Math.random() * (9) + 1))*1;
-                    if (rPlace == i){
-                        var rNumber = Math.floor((Math.random() * (9) + 1))*1;
-                        //Check(rNumber,i,j); ---------------------------------------------------------------------------------
-                        // while (Check(rNumber,i,j) != true){
-                        //     rNumber = Math.floor((Math.random() * (9) + 1))*1;
-                        // }
+                    var input = document.createElement("input");
+                        input.setAttribute("type","number");
+                        input.setAttribute("max",z);
+                        input.setAttribute("min",1);
+                    var rPlace = Math.floor((Math.random() * (z) + 1))*1;
+                    if (rPlace == j){
+                        var rNumber = Math.floor((Math.random() * (z) + 1))*1;
+                        tablica[i-1][j-1] = rNumber;
+                        Check(rNumber,i,j,tablica); 
+                        while (Check(rNumber,i,j,tablica) != true){
+                            rNumber = Math.floor((Math.random() * (9) + 1))*1;
+                            tablica[i-1][j-1] = rNumber;
+                        }
                         var cellText = document.createTextNode(rNumber);
                         cell.appendChild(cellText);
+                        
                     }
                     else{
-
+                        cell.appendChild(input);
                     }
                     
                     row.appendChild(cell);
@@ -121,18 +132,30 @@
             // `
 
         }
-        // function Check(rNumber,column,row){
-        //     if (Row(rNumber,column) == true && Column(rNumber,row) == true && Square(rNumber) == true){ //kwadrat - square
-        //         return true;
-        //     }
-        //     else
-        //         return false;
-        // }
-        // function Row (rNumber,column){
-        //     for (i = 1; i < column; i++){
-
-        //     }
-        // }
+        function Check(rNumber,column,row,tablica){
+            if (Row(rNumber,column,row,tablica) == true && Column(rNumber,column,row,tablica) == true){ //kwadrat - square   && Square(rNumber,tablica) == true
+                return true;
+            }
+            else
+                return false;
+        }
+        function Row (rNumber,column,row,tablica){
+            for (i = 0; i < column-1; i++){
+                if(rNumber == tablica[row][i]){
+                    return false;
+                }
+            }
+            return true;
+        }
+        function Column (rNumber,column,row,tablica){
+            for (i = 0; i < row-1; i++){
+                if(rNumber == tablica[i][column]){
+                    return false;
+                }
+            }
+            return true;
+        }
+        //function Square()
 
     </script>
 
